@@ -121,6 +121,33 @@ namespace DB.Migrations
                     b.ToTable("Subscription");
                 });
 
+            modelBuilder.Entity("Domain.Class.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasAlternateKey("Username");
+
+                    b.ToTable("User");
+                });
+
             modelBuilder.Entity("Domain.Class.Subscription", b =>
                 {
                     b.HasOne("Domain.Class.Service", "Catalog")

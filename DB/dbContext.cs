@@ -55,5 +55,13 @@ public class AppDbContext : DbContext
             .HasForeignKey(e => e.CustomerId)
             .OnDelete(DeleteBehavior.Cascade);
     });
+    
+    modelBuilder.Entity<User>(entity =>
+    {
+        entity.HasKey(e => e.Id);
+        entity.HasAlternateKey(e => e.Username);
+        entity.Property(e => e.Role)
+            .HasConversion<string>();
+    });
     }
 }
