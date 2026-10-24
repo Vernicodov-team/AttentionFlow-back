@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Наработки\\FlowAnalis\\API\\API.csproj": {}
+    "C:\\Users\\User\\RiderProjects\\AttentionFlow-back\\API\\API.csproj": {}
   },
   "projects": {
-    "D:\\Наработки\\FlowAnalis\\API\\API.csproj": {
+    "C:\\Users\\User\\RiderProjects\\AttentionFlow-back\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Наработки\\FlowAnalis\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\User\\RiderProjects\\AttentionFlow-back\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "D:\\Наработки\\FlowAnalis\\API\\API.csproj",
-        "packagesPath": "C:\\Users\\yrosl\\.nuget\\packages\\",
-        "outputPath": "D:\\Наработки\\FlowAnalis\\API\\obj\\",
+        "projectPath": "C:\\Users\\User\\RiderProjects\\AttentionFlow-back\\API\\API.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\RiderProjects\\AttentionFlow-back\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\yrosl\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -24,16 +24,17 @@
         },
         "frameworks": {
           "net9.0": {
+            "framework": "net9.0",
             "targetAlias": "net9.0",
             "projectReferences": {
-              "D:\\Наработки\\FlowAnalis\\Application\\Application.csproj": {
-                "projectPath": "D:\\Наработки\\FlowAnalis\\Application\\Application.csproj"
+              "C:\\Users\\User\\RiderProjects\\AttentionFlow-back\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\User\\RiderProjects\\AttentionFlow-back\\Application\\Application.csproj"
               },
-              "D:\\Наработки\\FlowAnalis\\DB\\DB.csproj": {
-                "projectPath": "D:\\Наработки\\FlowAnalis\\DB\\DB.csproj"
+              "C:\\Users\\User\\RiderProjects\\AttentionFlow-back\\DB\\DB.csproj": {
+                "projectPath": "C:\\Users\\User\\RiderProjects\\AttentionFlow-back\\DB\\DB.csproj"
               },
-              "D:\\Наработки\\FlowAnalis\\Domain\\Domain.csproj": {
-                "projectPath": "D:\\Наработки\\FlowAnalis\\Domain\\Domain.csproj"
+              "C:\\Users\\User\\RiderProjects\\AttentionFlow-back\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\User\\RiderProjects\\AttentionFlow-back\\Domain\\Domain.csproj"
               }
             }
           }
@@ -48,10 +49,11 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
+          "framework": "net9.0",
           "targetAlias": "net9.0",
           "dependencies": {
             "BCrypt.Net-Next": {
@@ -132,21 +134,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.319/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Наработки\\FlowAnalis\\Application\\Application.csproj": {
+    "C:\\Users\\User\\RiderProjects\\AttentionFlow-back\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Наработки\\FlowAnalis\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\User\\RiderProjects\\AttentionFlow-back\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "D:\\Наработки\\FlowAnalis\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\yrosl\\.nuget\\packages\\",
-        "outputPath": "D:\\Наработки\\FlowAnalis\\Application\\obj\\",
+        "projectPath": "C:\\Users\\User\\RiderProjects\\AttentionFlow-back\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\RiderProjects\\AttentionFlow-back\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\yrosl\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -156,13 +158,14 @@
         },
         "frameworks": {
           "net9.0": {
+            "framework": "net9.0",
             "targetAlias": "net9.0",
             "projectReferences": {
-              "D:\\Наработки\\FlowAnalis\\DB\\DB.csproj": {
-                "projectPath": "D:\\Наработки\\FlowAnalis\\DB\\DB.csproj"
+              "C:\\Users\\User\\RiderProjects\\AttentionFlow-back\\DB\\DB.csproj": {
+                "projectPath": "C:\\Users\\User\\RiderProjects\\AttentionFlow-back\\DB\\DB.csproj"
               },
-              "D:\\Наработки\\FlowAnalis\\Domain\\Domain.csproj": {
-                "projectPath": "D:\\Наработки\\FlowAnalis\\Domain\\Domain.csproj"
+              "C:\\Users\\User\\RiderProjects\\AttentionFlow-back\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\User\\RiderProjects\\AttentionFlow-back\\Domain\\Domain.csproj"
               }
             }
           }
@@ -177,10 +180,11 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
+          "framework": "net9.0",
           "targetAlias": "net9.0",
           "dependencies": {
             "BCrypt.Net-Next": {
@@ -216,21 +220,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.319/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Наработки\\FlowAnalis\\DB\\DB.csproj": {
+    "C:\\Users\\User\\RiderProjects\\AttentionFlow-back\\DB\\DB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Наработки\\FlowAnalis\\DB\\DB.csproj",
+        "projectUniqueName": "C:\\Users\\User\\RiderProjects\\AttentionFlow-back\\DB\\DB.csproj",
         "projectName": "DB",
-        "projectPath": "D:\\Наработки\\FlowAnalis\\DB\\DB.csproj",
-        "packagesPath": "C:\\Users\\yrosl\\.nuget\\packages\\",
-        "outputPath": "D:\\Наработки\\FlowAnalis\\DB\\obj\\",
+        "projectPath": "C:\\Users\\User\\RiderProjects\\AttentionFlow-back\\DB\\DB.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\RiderProjects\\AttentionFlow-back\\DB\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\yrosl\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -240,10 +244,11 @@
         },
         "frameworks": {
           "net9.0": {
+            "framework": "net9.0",
             "targetAlias": "net9.0",
             "projectReferences": {
-              "D:\\Наработки\\FlowAnalis\\Domain\\Domain.csproj": {
-                "projectPath": "D:\\Наработки\\FlowAnalis\\Domain\\Domain.csproj"
+              "C:\\Users\\User\\RiderProjects\\AttentionFlow-back\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\User\\RiderProjects\\AttentionFlow-back\\Domain\\Domain.csproj"
               }
             }
           }
@@ -258,10 +263,11 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
+          "framework": "net9.0",
           "targetAlias": "net9.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
@@ -303,21 +309,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.319/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Наработки\\FlowAnalis\\Domain\\Domain.csproj": {
+    "C:\\Users\\User\\RiderProjects\\AttentionFlow-back\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Наработки\\FlowAnalis\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\User\\RiderProjects\\AttentionFlow-back\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "D:\\Наработки\\FlowAnalis\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\yrosl\\.nuget\\packages\\",
-        "outputPath": "D:\\Наработки\\FlowAnalis\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\User\\RiderProjects\\AttentionFlow-back\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\RiderProjects\\AttentionFlow-back\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\yrosl\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -327,6 +333,7 @@
         },
         "frameworks": {
           "net9.0": {
+            "framework": "net9.0",
             "targetAlias": "net9.0",
             "projectReferences": {}
           }
@@ -341,10 +348,11 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
+          "framework": "net9.0",
           "targetAlias": "net9.0",
           "imports": [
             "net461",
@@ -362,7 +370,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.319/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
