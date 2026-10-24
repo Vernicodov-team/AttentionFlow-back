@@ -44,5 +44,6 @@ app.UseSwaggerUI(c =>
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "API V1");
 });
 
-app.Run();
+await app.SeedUsersAsync();
 
+app.Run();
