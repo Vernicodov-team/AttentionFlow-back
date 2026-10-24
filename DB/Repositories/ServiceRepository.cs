@@ -21,13 +21,13 @@ public class ServiceRepository : IServiceRepository
         return service;
     }
 
-    public async Task<Service?> GetByIdAsync(Guid id)
+    public async Task<Service?> GetByIdAsync(int id)
     {
         return await _context.Set<Service>()
             .FirstOrDefaultAsync(s => s.Id == id);
     }
 
-    public async Task<Service?> GetByIdWithSubscriptionsAsync(Guid id)
+    public async Task<Service?> GetByIdWithSubscriptionsAsync(int id)
     {
         return await _context.Set<Service>()
             .Include(s => s.Subscriptions)

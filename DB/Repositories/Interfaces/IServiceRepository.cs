@@ -6,9 +6,9 @@ public interface IServiceRepository
 {
     Task<Service> AddAsync(Service service);
 
-    Task<Service?> GetByIdAsync(Guid id);
+    Task<Service?> GetByIdAsync(int id);
 
-    Task<Service?> GetByIdWithSubscriptionsAsync(Guid id);
+    Task<Service?> GetByIdWithSubscriptionsAsync(int id);
 
     Task<Service?> GetByNameAsync(string name);
 

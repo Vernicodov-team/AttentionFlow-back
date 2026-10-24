@@ -35,8 +35,8 @@ public class AppDbContext : DbContext
         entity.Property(e => e.Category);
         
         entity.HasMany(e => e.Subscriptions)
-            .WithOne(e => e.Catalog)
-            .HasForeignKey(e => e.CatalogId)
+            .WithOne(e => e.Service)
+            .HasForeignKey(e => e.ServiceId)
             .OnDelete(DeleteBehavior.Restrict);
     });
 
@@ -62,6 +62,28 @@ public class AppDbContext : DbContext
         entity.HasAlternateKey(e => e.Username);
         entity.Property(e => e.Role)
             .HasConversion<string>();
+    });
+    
+    modelBuilder.Entity<ParameterSet>(entity =>
+    {
+        entity.HasKey(e => e.Id);
+        entity.HasAlternateKey(e => e.PSetName);
+
+        entity.ToTable(table =>
+        {
+            table.HasCheckConstraint(
+                "PS_WeightNoAutoprolong",
+                "\"WeightNoAutoprolong\" >= 0.0 AND \"WeightNoAutoprolong\" <= 1.0");
+            table.HasCheckConstraint(
+                "PS_WeightLowBalance",
+                "\"WeightLowBalance\" >= 0.0 AND \"WeightLowBalance\" <= 1.0");
+            table.HasCheckConstraint(
+                "PS_WeightExpiringSoon",
+                "\"WeightExpiringSoon\" >= 0.0 AND \"WeightExpiringSoon\" <= 1.0");
+            table.HasCheckConstraint(
+                "PS_WeightProlongWaitStatus",
+                "\"WeightProlongWaitStatus\" >= 0.0 AND \"WeightProlongWaitStatus\" <= 1.0");
+        });
     });
     }
 }

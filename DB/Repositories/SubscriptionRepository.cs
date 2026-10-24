@@ -21,11 +21,11 @@ public class SubscriptionRepository : ISubscriptionRepository
         return subscription;
     }
 
-    public async Task<Subscription?> GetByIdAsync(Guid id)
+    public async Task<Subscription?> GetByIdAsync(int id)
     {
         return await _context.Set<Subscription>()
             .Include(s => s.Customer)
-            .Include(s => s.Catalog)
+            .Include(s => s.Service)
             .FirstOrDefaultAsync(s => s.Id == id);
     }
 
@@ -33,23 +33,23 @@ public class SubscriptionRepository : ISubscriptionRepository
     {
         return await _context.Set<Subscription>()
             .Include(s => s.Customer)
-            .Include(s => s.Catalog)
+            .Include(s => s.Service)
             .ToListAsync();
     }
 
     public async Task<List<Subscription>> GetByCustomerIdAsync(Guid customerId)
     {
         return await _context.Set<Subscription>()
-            .Include(s => s.Catalog)
+            .Include(s => s.Service)
             .Where(s => s.CustomerId == customerId)
             .ToListAsync();
     }
 
-    public async Task<List<Subscription>> GetByCatalogIdAsync(Guid catalogId)
+    public async Task<List<Subscription>> GetByCatalogIdAsync(int ServiceId)
     {
         return await _context.Set<Subscription>()
             .Include(s => s.Customer)
-            .Where(s => s.CatalogId == catalogId)
+            .Where(s => s.ServiceId == ServiceId)
             .ToListAsync();
     }
 

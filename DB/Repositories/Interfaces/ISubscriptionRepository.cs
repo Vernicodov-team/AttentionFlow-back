@@ -6,13 +6,13 @@ public interface ISubscriptionRepository
 {
     Task<Subscription> AddAsync(Subscription subscription);
 
-    Task<Subscription?> GetByIdAsync(Guid id);
+    Task<Subscription?> GetByIdAsync(int id);
 
     Task<List<Subscription>> GetAllAsync();
 
     Task<List<Subscription>> GetByCustomerIdAsync(Guid customerId);
 
-    Task<List<Subscription>> GetByCatalogIdAsync(Guid catalogId);
+    Task<List<Subscription>> GetByCatalogIdAsync(int catalogId);
 
     Task<Subscription> UpdateAsync(Subscription subscription);
 }
