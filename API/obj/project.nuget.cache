@@ -1,12 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "FXGRFZsxpYs=",
+  "dgSpecHash": "bnDygVKa+jM=",
   "success": true,
   "projectFilePath": "D:\\Наработки\\FlowAnalis\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\yrosl\\.nuget\\packages\\bcrypt.net-next\\4.2.0\\bcrypt.net-next.4.2.0.nupkg.sha512",
     "C:\\Users\\yrosl\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\9.0.21\\microsoft.aspnetcore.authentication.jwtbearer.9.0.21.nupkg.sha512",
+    "C:\\Users\\yrosl\\.nuget\\packages\\microsoft.aspnetcore.authorization\\2.3.12\\microsoft.aspnetcore.authorization.2.3.12.nupkg.sha512",
+    "C:\\Users\\yrosl\\.nuget\\packages\\microsoft.aspnetcore.connections.abstractions\\9.0.21\\microsoft.aspnetcore.connections.abstractions.9.0.21.nupkg.sha512",
     "C:\\Users\\yrosl\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.2\\microsoft.aspnetcore.openapi.9.0.2.nupkg.sha512",
+    "C:\\Users\\yrosl\\.nuget\\packages\\microsoft.aspnetcore.signalr.common\\9.0.21\\microsoft.aspnetcore.signalr.common.9.0.21.nupkg.sha512",
+    "C:\\Users\\yrosl\\.nuget\\packages\\microsoft.aspnetcore.signalr.core\\1.2.13\\microsoft.aspnetcore.signalr.core.1.2.13.nupkg.sha512",
+    "C:\\Users\\yrosl\\.nuget\\packages\\microsoft.aspnetcore.signalr.protocols.json\\1.2.0\\microsoft.aspnetcore.signalr.protocols.json.1.2.0.nupkg.sha512",
     "C:\\Users\\yrosl\\.nuget\\packages\\microsoft.bcl.cryptography\\10.0.2\\microsoft.bcl.cryptography.10.0.2.nupkg.sha512",
     "C:\\Users\\yrosl\\.nuget\\packages\\microsoft.entityframeworkcore\\9.0.21\\microsoft.entityframeworkcore.9.0.21.nupkg.sha512",
     "C:\\Users\\yrosl\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\9.0.21\\microsoft.entityframeworkcore.abstractions.9.0.21.nupkg.sha512",
@@ -17,6 +22,7 @@
     "C:\\Users\\yrosl\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\9.0.21\\microsoft.extensions.configuration.abstractions.9.0.21.nupkg.sha512",
     "C:\\Users\\yrosl\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\9.0.21\\microsoft.extensions.dependencyinjection.9.0.21.nupkg.sha512",
     "C:\\Users\\yrosl\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.21\\microsoft.extensions.dependencyinjection.abstractions.9.0.21.nupkg.sha512",
+    "C:\\Users\\yrosl\\.nuget\\packages\\microsoft.extensions.features\\9.0.21\\microsoft.extensions.features.9.0.21.nupkg.sha512",
     "C:\\Users\\yrosl\\.nuget\\packages\\microsoft.extensions.logging\\9.0.21\\microsoft.extensions.logging.9.0.21.nupkg.sha512",
     "C:\\Users\\yrosl\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\9.0.21\\microsoft.extensions.logging.abstractions.9.0.21.nupkg.sha512",
     "C:\\Users\\yrosl\\.nuget\\packages\\microsoft.extensions.options\\9.0.21\\microsoft.extensions.options.9.0.21.nupkg.sha512",
@@ -28,12 +34,19 @@
     "C:\\Users\\yrosl\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\8.19.2\\microsoft.identitymodel.protocols.openidconnect.8.19.2.nupkg.sha512",
     "C:\\Users\\yrosl\\.nuget\\packages\\microsoft.identitymodel.tokens\\8.19.2\\microsoft.identitymodel.tokens.8.19.2.nupkg.sha512",
     "C:\\Users\\yrosl\\.nuget\\packages\\microsoft.openapi\\1.6.25\\microsoft.openapi.1.6.25.nupkg.sha512",
+    "C:\\Users\\yrosl\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
     "C:\\Users\\yrosl\\.nuget\\packages\\npgsql\\9.0.3\\npgsql.9.0.3.nupkg.sha512",
     "C:\\Users\\yrosl\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\9.0.4\\npgsql.entityframeworkcore.postgresql.9.0.4.nupkg.sha512",
+    "C:\\Users\\yrosl\\.nuget\\packages\\signalrswaggergen\\4.9.0\\signalrswaggergen.4.9.0.nupkg.sha512",
+    "C:\\Users\\yrosl\\.nuget\\packages\\signalrswaggergen.core\\1.6.0\\signalrswaggergen.core.1.6.0.nupkg.sha512",
+    "C:\\Users\\yrosl\\.nuget\\packages\\signalrswaggergen.utils\\1.8.0\\signalrswaggergen.utils.1.8.0.nupkg.sha512",
     "C:\\Users\\yrosl\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\9.0.6\\swashbuckle.aspnetcore.swagger.9.0.6.nupkg.sha512",
     "C:\\Users\\yrosl\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\9.0.6\\swashbuckle.aspnetcore.swaggergen.9.0.6.nupkg.sha512",
     "C:\\Users\\yrosl\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\9.0.6\\swashbuckle.aspnetcore.swaggerui.9.0.6.nupkg.sha512",
-    "C:\\Users\\yrosl\\.nuget\\packages\\system.identitymodel.tokens.jwt\\8.19.2\\system.identitymodel.tokens.jwt.8.19.2.nupkg.sha512"
+    "C:\\Users\\yrosl\\.nuget\\packages\\system.identitymodel.tokens.jwt\\8.19.2\\system.identitymodel.tokens.jwt.8.19.2.nupkg.sha512",
+    "C:\\Users\\yrosl\\.nuget\\packages\\system.io.pipelines\\8.0.0\\system.io.pipelines.8.0.0.nupkg.sha512",
+    "C:\\Users\\yrosl\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
+    "C:\\Users\\yrosl\\.nuget\\packages\\system.threading.channels\\8.0.0\\system.threading.channels.8.0.0.nupkg.sha512"
   ],
   "logs": []
 }
