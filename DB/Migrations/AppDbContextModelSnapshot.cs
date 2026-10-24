@@ -109,44 +109,8 @@ namespace DB.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<long>("BasePrice")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("Category")
-                        .HasColumnType("text");
-
-                    b.Property<string>("DefaultPaymentTerm")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Name")
-                        .IsUnique();
-
-                    b.ToTable("Service");
-                });
-
-            modelBuilder.Entity("Domain.Class.Subscription", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<long>("ActualPrice")
-                        .HasColumnType("bigint");
-
                     b.Property<bool>("Autoprolong")
                         .HasColumnType("boolean");
-
-                    b.Property<string>("CustomName")
-                        .HasColumnType("text");
 
                     b.Property<Guid>("CustomerId")
                         .HasColumnType("uuid");
@@ -154,12 +118,16 @@ namespace DB.Migrations
                     b.Property<DateTime>("ExpiresAt")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<string>("PaymentTerm")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("ServiceId")
-                        .HasColumnType("integer");
+                    b.Property<long>("Price")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Status")
                         .IsRequired()
@@ -169,9 +137,44 @@ namespace DB.Migrations
 
                     b.HasIndex("CustomerId");
 
+                    b.ToTable("Services");
+                });
+
+            modelBuilder.Entity("Domain.Class.Transaction", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<long>("Amount")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<Guid>("CustomerId")
+                        .HasColumnType("uuid");
+
+                    b.Property<int?>("ServiceId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CustomerId");
+
                     b.HasIndex("ServiceId");
 
-                    b.ToTable("Subscription");
+                    b.ToTable("Transactions");
                 });
 
             modelBuilder.Entity("Domain.Class.User", b =>
@@ -201,7 +204,18 @@ namespace DB.Migrations
                     b.ToTable("User");
                 });
 
-            modelBuilder.Entity("Domain.Class.Subscription", b =>
+            modelBuilder.Entity("Domain.Class.Service", b =>
+                {
+                    b.HasOne("Domain.Class.Customer", "Customer")
+                        .WithMany()
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Customer");
+                });
+
+            modelBuilder.Entity("Domain.Class.Transaction", b =>
                 {
                     b.HasOne("Domain.Class.Customer", "Customer")
                         .WithMany()
@@ -210,19 +224,13 @@ namespace DB.Migrations
                         .IsRequired();
 
                     b.HasOne("Domain.Class.Service", "Service")
-                        .WithMany("Subscriptions")
+                        .WithMany()
                         .HasForeignKey("ServiceId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("Customer");
 
                     b.Navigation("Service");
-                });
-
-            modelBuilder.Entity("Domain.Class.Service", b =>
-                {
-                    b.Navigation("Subscriptions");
                 });
 #pragma warning restore 612, 618
         }

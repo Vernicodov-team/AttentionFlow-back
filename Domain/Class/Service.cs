@@ -5,12 +5,20 @@ namespace Domain.Class;
 public class Service
 {
     public int Id { get; set; }
+
+    public Guid CustomerId { get; set; }
+
     public string Name { get; set; } = string.Empty;
-    public long BasePrice { get; set; }
-    public ServiceEnums.PaymentTerm DefaultPaymentTerm { get; set; }
-    public string? Category { get; set; }
-        
-    public List<Subscription> Subscriptions { get; set; } = new List<Subscription>();
-    
-    
+
+    public long Price { get; set; }
+
+    public bool Autoprolong { get; set; }
+
+    public ServiceEnums.PaymentTerm PaymentTerm { get; set; }
+
+    public ServiceEnums.ServiceStatus Status { get; set; }
+
+    public DateTime ExpiresAt { get; set; }
+
+    public virtual Customer? Customer { get; set; }
 }

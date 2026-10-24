@@ -7,6 +7,8 @@ namespace DB;
 public class AppDbContext : DbContext
 {
     public DbSet<Customer> Customers { get; set; }
+    public DbSet<Service> Services { get; set; }
+    public DbSet<Transaction> Transactions { get; set; }
     
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) {}
 
@@ -20,40 +22,45 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<Service>(entity =>
     {
         entity.HasKey(e => e.Id);
-        
-        entity.Property(e => e.Id);
 
         entity.Property(e => e.Name)
             .IsRequired();
-        entity.HasIndex(e => e.Name).IsUnique();
-        
-        entity.Property(e => e.BasePrice);
-        
-        entity.Property(e => e.DefaultPaymentTerm)
-            .HasConversion<string>();
 
-        entity.Property(e => e.Category);
-        
-        entity.HasMany(e => e.Subscriptions)
-            .WithOne(e => e.Service)
-            .HasForeignKey(e => e.ServiceId)
-            .OnDelete(DeleteBehavior.Restrict);
-    });
-
-    modelBuilder.Entity<Subscription>(entity =>
-    {
-        entity.Property(e => e.CustomName);
-        
         entity.Property(e => e.PaymentTerm)
             .HasConversion<string>();
-        
+
         entity.Property(e => e.Status)
             .HasConversion<string>();
+
+        entity.HasIndex(e => e.CustomerId);
 
         entity.HasOne(e => e.Customer)
             .WithMany()
             .HasForeignKey(e => e.CustomerId)
             .OnDelete(DeleteBehavior.Cascade);
+    });
+
+    modelBuilder.Entity<Transaction>(entity =>
+    {
+        entity.HasKey(e => e.Id);
+
+        entity.Property(e => e.Type)
+            .HasConversion<string>();
+
+        entity.Property(e => e.Status)
+            .HasConversion<string>();
+
+        entity.HasIndex(e => e.CustomerId);
+
+        entity.HasOne(e => e.Customer)
+            .WithMany()
+            .HasForeignKey(e => e.CustomerId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        entity.HasOne(e => e.Service)
+            .WithMany()
+            .HasForeignKey(e => e.ServiceId)
+            .OnDelete(DeleteBehavior.SetNull);
     });
     
     modelBuilder.Entity<User>(entity =>

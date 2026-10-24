@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -12,43 +12,10 @@ namespace DB.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_Subscription_Service_CatalogId",
-                table: "Subscription");
-
-            migrationBuilder.DropIndex(
-                name: "IX_Subscription_CatalogId",
-                table: "Subscription");
-
-            migrationBuilder.DropColumn(
-                name: "CatalogId",
-                table: "Subscription");
-
-            migrationBuilder.AlterColumn<int>(
-                name: "Id",
-                table: "Subscription",
-                type: "integer",
-                nullable: false,
-                oldClrType: typeof(Guid),
-                oldType: "uuid")
-                .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-            migrationBuilder.AddColumn<int>(
-                name: "ServiceId",
-                table: "Subscription",
-                type: "integer",
-                nullable: false,
-                defaultValue: 0);
-
-            migrationBuilder.AlterColumn<int>(
-                name: "Id",
-                table: "Service",
-                type: "integer",
-                nullable: false,
-                oldClrType: typeof(Guid),
-                oldType: "uuid")
-                .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
+            // Only the ParameterSet table belongs to this step. Changes to the former
+            // Service/Subscription schema are handled by the following migration, which
+            // drops those tables entirely; altering their Guid keys to integer here
+            // fails in PostgreSQL without an explicit USING clause.
             migrationBuilder.CreateTable(
                 name: "ParameterSet",
                 columns: table => new
@@ -73,76 +40,13 @@ namespace DB.Migrations
                     table.CheckConstraint("PS_WeightNoAutoprolong", "\"WeightNoAutoprolong\" >= 0.0 AND \"WeightNoAutoprolong\" <= 1.0");
                     table.CheckConstraint("PS_WeightProlongWaitStatus", "\"WeightProlongWaitStatus\" >= 0.0 AND \"WeightProlongWaitStatus\" <= 1.0");
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Subscription_ServiceId",
-                table: "Subscription",
-                column: "ServiceId");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Subscription_Service_ServiceId",
-                table: "Subscription",
-                column: "ServiceId",
-                principalTable: "Service",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_Subscription_Service_ServiceId",
-                table: "Subscription");
-
             migrationBuilder.DropTable(
                 name: "ParameterSet");
-
-            migrationBuilder.DropIndex(
-                name: "IX_Subscription_ServiceId",
-                table: "Subscription");
-
-            migrationBuilder.DropColumn(
-                name: "ServiceId",
-                table: "Subscription");
-
-            migrationBuilder.AlterColumn<Guid>(
-                name: "Id",
-                table: "Subscription",
-                type: "uuid",
-                nullable: false,
-                oldClrType: typeof(int),
-                oldType: "integer")
-                .OldAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-            migrationBuilder.AddColumn<Guid>(
-                name: "CatalogId",
-                table: "Subscription",
-                type: "uuid",
-                nullable: false,
-                defaultValue: new Guid("00000000-0000-0000-0000-000000000000"));
-
-            migrationBuilder.AlterColumn<Guid>(
-                name: "Id",
-                table: "Service",
-                type: "uuid",
-                nullable: false,
-                oldClrType: typeof(int),
-                oldType: "integer")
-                .OldAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Subscription_CatalogId",
-                table: "Subscription",
-                column: "CatalogId");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Subscription_Service_CatalogId",
-                table: "Subscription",
-                column: "CatalogId",
-                principalTable: "Service",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
         }
     }
 }

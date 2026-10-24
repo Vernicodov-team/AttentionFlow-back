@@ -8,15 +8,13 @@ public interface IServiceRepository
 
     Task<Service?> GetByIdAsync(int id);
 
-    Task<Service?> GetByIdWithSubscriptionsAsync(int id);
-
-    Task<Service?> GetByNameAsync(string name);
-
-    Task<Service?> GetByNameWithSubscriptionsAsync(string name);
+    Task<Service?> GetByIdWithCustomerAsync(int id);
 
     Task<List<Service>> GetAllAsync();
 
-    Task<List<Service>> GetAllWithSubscriptionsAsync();
+    Task<List<Service>> GetAllWithCustomerAsync();
+
+    Task<List<Service>> GetByCustomerIdAsync(Guid customerId);
 
     Task<Service> UpdateAsync(Service service);
 }
