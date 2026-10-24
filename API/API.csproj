@@ -15,6 +15,10 @@
         <PackageReference Include="Microsoft.AspNetCore.SignalR.Core" Version="1.2.13" />
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.21" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="9.0.21" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.21">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
         <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
         <PackageReference Include="SignalRSwaggerGen" Version="4.9.0" />
         <PackageReference Include="SignalRSwaggerGen.Core" Version="1.6.0" />
