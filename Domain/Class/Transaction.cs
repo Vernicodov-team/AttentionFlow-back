@@ -6,7 +6,7 @@ public class Transaction
 {
     public int Id { get; set; }
 
-    public Guid CustomerId { get; set; }
+    public int CustomerId { get; set; }
 
     public int? ServiceId { get; set; }
 

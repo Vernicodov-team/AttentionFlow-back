@@ -6,7 +6,7 @@ public class Service
 {
     public int Id { get; set; }
 
-    public Guid CustomerId { get; set; }
+    public int CustomerId { get; set; }
 
     public string Name { get; set; } = string.Empty;
 

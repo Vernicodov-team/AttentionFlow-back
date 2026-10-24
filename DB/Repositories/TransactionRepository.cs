@@ -37,7 +37,7 @@ public class TransactionRepository : ITransactionRepository
             .ToListAsync();
     }
 
-    public async Task<List<Transaction>> GetByCustomerIdAsync(Guid customerId)
+    public async Task<List<Transaction>> GetByCustomerIdAsync(int customerId)
     {
         return await _context.Set<Transaction>()
             .Include(t => t.Service)
@@ -54,8 +54,6 @@ public class TransactionRepository : ITransactionRepository
 
     public async Task<Transaction> UpdateAsync(Transaction transaction)
     {
-        // Same guard as in ServiceRepository: never attach a second instance that
-        // shares a key with an entity the context already tracks.
         Transaction? tracked = _context.Set<Transaction>().Local
             .FirstOrDefault(t => t.Id == transaction.Id);
 

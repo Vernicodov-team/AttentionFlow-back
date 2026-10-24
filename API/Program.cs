@@ -18,9 +18,11 @@ builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
 builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<ISnapshotRepository, SnapshotRepository>();
 builder.Services.AddSingleton<ITokenCreator, JWTCreator>();
 
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ISnapshotService, SnapshotService>();
 
 builder.SetupJWT();
 builder.Services.AddControllers();

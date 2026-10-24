@@ -14,7 +14,7 @@ public interface IServiceRepository
 
     Task<List<Service>> GetAllWithCustomerAsync();
 
-    Task<List<Service>> GetByCustomerIdAsync(Guid customerId);
+    Task<List<Service>> GetByCustomerIdAsync(int customerId);
 
     Task<Service> UpdateAsync(Service service);
 }

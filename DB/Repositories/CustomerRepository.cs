@@ -21,7 +21,7 @@ public class CustomerRepository : ICustomerRepository
         return customer;
     }
 
-    public async Task<Customer?> GetByIdAsync(Guid id)
+    public async Task<Customer?> GetByIdAsync(int id)
     {
         return await _context.Customers
             .FirstOrDefaultAsync(c => c.Id == id);

@@ -47,7 +47,7 @@ public class ServiceRepository : IServiceRepository
             .ToListAsync();
     }
 
-    public async Task<List<Service>> GetByCustomerIdAsync(Guid customerId)
+    public async Task<List<Service>> GetByCustomerIdAsync(int customerId)
     {
         return await _context.Set<Service>()
             .Where(s => s.CustomerId == customerId)
@@ -56,9 +56,6 @@ public class ServiceRepository : IServiceRepository
 
     public async Task<Service> UpdateAsync(Service service)
     {
-        // A scoped context may already track another instance with the same key
-        // (for example one loaded via GetByIdAsync). Attaching a second copy in that
-        // case throws; copy the values onto the tracked instance instead.
         Service? tracked = _context.Set<Service>().Local
             .FirstOrDefault(s => s.Id == service.Id);
 

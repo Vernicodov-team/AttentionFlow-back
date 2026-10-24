@@ -2,7 +2,7 @@ namespace Domain.Class;
 
 public class Customer
 {
-    public Guid Id { get; set; }
+    public int Id { get; set; }
     public required string Email { get; set; }
     
     public long Balance { get; set; }
