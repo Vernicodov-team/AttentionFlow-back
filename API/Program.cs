@@ -1,3 +1,5 @@
+using API.Modules;
+using Application.Service;
 using DB;
 using DB.Repositories;
 using DB.Repositories.Interfaces;
@@ -16,7 +18,12 @@ builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
 builder.Services.AddScoped<ISubscriptionRepository, SubscriptionRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddSingleton<ITokenCreator, JWTCreator>();
 
+builder.Services.AddScoped<IUserService, UserService>();
+
+builder.SetupJWT();
+builder.Services.AddControllers();
 
 var app = builder.Build();
 
@@ -26,11 +33,16 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.UseHttpsRedirection();
+
+app.UseAuthentication();
+app.UseAuthorization();
+app.MapControllers();
+app.MapSwagger();
 app.UseSwaggerUI(c =>
 {
     c.RoutePrefix = "api/v1/docs"; 
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "API V1");
 });
+
 app.Run();
 
