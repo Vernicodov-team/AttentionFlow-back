@@ -51,6 +51,99 @@ namespace DB.Migrations
 
                     b.ToTable("Customers");
                 });
+
+            modelBuilder.Entity("Domain.Class.Service", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<long>("BasePrice")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Category")
+                        .HasColumnType("text");
+
+                    b.Property<string>("DefaultPaymentTerm")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("Service");
+                });
+
+            modelBuilder.Entity("Domain.Class.Subscription", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<long>("ActualPrice")
+                        .HasColumnType("bigint");
+
+                    b.Property<bool>("Autoprolong")
+                        .HasColumnType("boolean");
+
+                    b.Property<Guid>("CatalogId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("CustomName")
+                        .HasColumnType("text");
+
+                    b.Property<Guid>("CustomerId")
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("ExpiresAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("PaymentTerm")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CatalogId");
+
+                    b.HasIndex("CustomerId");
+
+                    b.ToTable("Subscription");
+                });
+
+            modelBuilder.Entity("Domain.Class.Subscription", b =>
+                {
+                    b.HasOne("Domain.Class.Service", "Catalog")
+                        .WithMany("Subscriptions")
+                        .HasForeignKey("CatalogId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Class.Customer", "Customer")
+                        .WithMany()
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Catalog");
+
+                    b.Navigation("Customer");
+                });
+
+            modelBuilder.Entity("Domain.Class.Service", b =>
+                {
+                    b.Navigation("Subscriptions");
+                });
 #pragma warning restore 612, 618
         }
     }
