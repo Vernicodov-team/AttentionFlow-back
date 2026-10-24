@@ -52,11 +52,62 @@ namespace DB.Migrations
                     b.ToTable("Customers");
                 });
 
+            modelBuilder.Entity("Domain.Class.ParameterSet", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("FinancialLossHorizonMonths")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("PSetName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<double>("Risk")
+                        .HasColumnType("double precision");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<double>("WeightExpiringSoon")
+                        .HasColumnType("double precision");
+
+                    b.Property<double>("WeightLowBalance")
+                        .HasColumnType("double precision");
+
+                    b.Property<double>("WeightNoAutoprolong")
+                        .HasColumnType("double precision");
+
+                    b.Property<double>("WeightProlongWaitStatus")
+                        .HasColumnType("double precision");
+
+                    b.HasKey("Id");
+
+                    b.HasAlternateKey("PSetName");
+
+                    b.ToTable("ParameterSet", t =>
+                        {
+                            t.HasCheckConstraint("PS_WeightExpiringSoon", "\"WeightExpiringSoon\" >= 0.0 AND \"WeightExpiringSoon\" <= 1.0");
+
+                            t.HasCheckConstraint("PS_WeightLowBalance", "\"WeightLowBalance\" >= 0.0 AND \"WeightLowBalance\" <= 1.0");
+
+                            t.HasCheckConstraint("PS_WeightNoAutoprolong", "\"WeightNoAutoprolong\" >= 0.0 AND \"WeightNoAutoprolong\" <= 1.0");
+
+                            t.HasCheckConstraint("PS_WeightProlongWaitStatus", "\"WeightProlongWaitStatus\" >= 0.0 AND \"WeightProlongWaitStatus\" <= 1.0");
+                        });
+                });
+
             modelBuilder.Entity("Domain.Class.Service", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<long>("BasePrice")
                         .HasColumnType("bigint");
@@ -82,18 +133,17 @@ namespace DB.Migrations
 
             modelBuilder.Entity("Domain.Class.Subscription", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<long>("ActualPrice")
                         .HasColumnType("bigint");
 
                     b.Property<bool>("Autoprolong")
                         .HasColumnType("boolean");
-
-                    b.Property<Guid>("CatalogId")
-                        .HasColumnType("uuid");
 
                     b.Property<string>("CustomName")
                         .HasColumnType("text");
@@ -108,15 +158,18 @@ namespace DB.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<int>("ServiceId")
+                        .HasColumnType("integer");
+
                     b.Property<string>("Status")
                         .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CatalogId");
-
                     b.HasIndex("CustomerId");
+
+                    b.HasIndex("ServiceId");
 
                     b.ToTable("Subscription");
                 });
@@ -150,21 +203,21 @@ namespace DB.Migrations
 
             modelBuilder.Entity("Domain.Class.Subscription", b =>
                 {
-                    b.HasOne("Domain.Class.Service", "Catalog")
-                        .WithMany("Subscriptions")
-                        .HasForeignKey("CatalogId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
                     b.HasOne("Domain.Class.Customer", "Customer")
                         .WithMany()
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Catalog");
+                    b.HasOne("Domain.Class.Service", "Service")
+                        .WithMany("Subscriptions")
+                        .HasForeignKey("ServiceId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.Navigation("Customer");
+
+                    b.Navigation("Service");
                 });
 
             modelBuilder.Entity("Domain.Class.Service", b =>
